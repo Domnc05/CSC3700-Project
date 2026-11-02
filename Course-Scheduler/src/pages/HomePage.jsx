@@ -15,14 +15,15 @@ function HomePage(props) {
 
     return(
         <div>
-            <ProgressSummary/>
             <h2 className="page-title">CS Developer Track</h2>
             {isPending && <div className='text-muted'>Loading ...</div>}
             {error && <div className='text-danger'>{String(error)}</div>}
-
             {courses.length > 0 && (
+                <>
+                <ProgressSummary courses={courses} completed={completed}/>
                 <CourseList courses={courses}
                             completed={completed} setCompleted={setCompleted}/>
+                </>
             )}
         </div>
 
