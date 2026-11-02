@@ -15,6 +15,7 @@ function HomePage(props) {
 
     return(
         <div>
+            <ProgressSummary/>
             <h2 className="page-title">CS Developer Track</h2>
             {isPending && <div className='text-muted'>Loading ...</div>}
             {error && <div className='text-danger'>{String(error)}</div>}
@@ -23,7 +24,6 @@ function HomePage(props) {
                 <CourseList courses={courses}
                             completed={completed} setCompleted={setCompleted}/>
             )}
-            <ProgressSummary/>
         </div>
 
     )

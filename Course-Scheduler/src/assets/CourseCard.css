@@ -1,6 +1,6 @@
 .course-card {
     background: #fff;
-    border: 1px solid #0d6efd;
+    border: 2px solid #0d6efd;
     border-radius: 4px;
     overflow: hidden;
     height: 100%;
@@ -10,6 +10,23 @@
     flex-direction: column;
     padding: 8px;
     text-align: left !important;
+}
+
+.course-card.unavailable {
+    border-color: gray;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.course-card.available {
+    border-color: dodgerblue;
+}
+
+.course-card.completed {
+    border-color: green;
+    background-color: #eaf5ee;
+    box-shadow: 0 0 3px green;
+    overflow: hidden;
 }
 
 .course-card-top {
@@ -87,4 +104,9 @@
     height: 11px;
     margin: 0;
     accent-color: #0d6efd;
+}
+
+.course-card.completed .card-header,
+.course-card.completed .card-footer {
+    background-color: transparent;
 }
