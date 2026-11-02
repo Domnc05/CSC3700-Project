@@ -2,7 +2,7 @@ import CourseCard from "./CourseCard.jsx";
 import {Button, ButtonGroup, Col, Container, Row} from "react-bootstrap";
 import {useState} from "react";
 
-function CourseList({courses, completed, setCompleted}) {
+function CourseList({ saveCompleted, courses, completed, setCompleted}) {
     const completedCourses = courses.filter(course =>
         completed.includes(course.id))
     const remainingCourses = courses.filter(course =>
@@ -17,6 +17,7 @@ function CourseList({courses, completed, setCompleted}) {
                 <Button onClick={e=> setCurrentDisplay(completedCourses)}>Completed Only</Button>
                 <Button onClick={e=> setCurrentDisplay(remainingCourses)}>Remaining</Button>
             </ButtonGroup>
+                <Button onClick={saveCompleted}>Save</Button>
             </div>
             <Container className="py-4">
                 <Row className="g-4" xs={1} md={3}>

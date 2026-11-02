@@ -11,7 +11,14 @@ function HomePage(props) {
 
     const courses = Array.isArray(data) ? data : []
 
-    const [completed, setCompleted] = useState([]);
+    const [completed, setCompleted] = useState(() => {
+        const saved = localStorage.getItem('completed');
+        return saved ? JSON.parse(saved) : [];
+    });
+
+    function saveCompleted() {
+        localStorage.setItem('completed', JSON.stringify(completed));
+    }
 
     return(
         <div>
@@ -21,7 +28,7 @@ function HomePage(props) {
             {courses.length > 0 && (
                 <>
                 <ProgressSummary courses={courses} completed={completed}/>
-                <CourseList courses={courses}
+                <CourseList saveCompleted={saveCompleted} courses={courses}
                             completed={completed} setCompleted={setCompleted}/>
                 </>
             )}
