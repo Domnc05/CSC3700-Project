@@ -1,0 +1,48 @@
+@baseUrl = http://localhost:3000/api
+
+### 1. GET all courses -- expect 200
+GET {{baseUrl}}/courses
+
+### 2. GET one course by id -- expect 200
+GET {{baseUrl}}/courses/1
+
+### 3. GET a course that does not exist -- expect 404
+GET {{baseUrl}}/courses/9999
+
+### 5. POST -- create a new course -- expect 201 (note the id it returns)
+POST {{baseUrl}}/courses
+Content-Type: application/json
+
+{
+  "title": "Cloud Computing",
+  "number": "CSC4600",
+  "description": "Test Course",
+  "credits": 3,
+  "prerequisites": [5, 9]
+}
+
+### 6. PUT -- update the course you just created
+PUT {{baseUrl}}/courses/11
+Content-Type: application/json
+
+{
+  "title": "Cloud Computing",
+  "number": "CSC4600",
+  "description": "testing Course",
+  "credits": 3,
+  "prerequisites": [5,9]
+}
+
+### 7. DELETE -- remove your course
+DELETE {{baseUrl}}/courses/11
+
+### 8. Confirm the delete -- expect 404
+GET {{baseUrl}}/courses/11
+
+### 9. POST missing required field -- expect 400
+POST {{baseUrl}}/courses
+Content-Type: application/json
+
+{
+  "title": "Incomplete Course"
+}
