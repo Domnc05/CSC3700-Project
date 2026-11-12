@@ -3,16 +3,15 @@ import {ProgressBar} from "react-bootstrap";
 
 function ProgressSummary({courses, completed}){
     const available = courses.filter(course =>
-        !completed.includes(course.id) &&
+        !completed.map(String).includes(String(course.id)) &&
         course.prerequisites.every(prereq =>
-            completed.includes(String(prereq))
+            completed.map(String).includes(String(prereq))
         )
     );
-
     const locked = courses.filter(course =>
-        !completed.includes(course.id) &&
+        !completed.map(String).includes(String(course.id)) &&
         course.prerequisites.some(prereq =>
-            !completed.includes(String(prereq))
+            !completed.map(String).includes(String(prereq))
         )
     );
 
@@ -24,7 +23,7 @@ function ProgressSummary({courses, completed}){
     return(
         <div className={'card progress-card'}>
             <div className={'card-body'}>
-                {complete} of 10 Courses Completed   {availCount} available   {lockedCount} locked
+                {complete} of {courses.length} Courses Completed   {availCount} available   {lockedCount} locked
                 <ProgressBar min={0} max={100} now={now} label={`${now}%`}>
 
                 </ProgressBar>

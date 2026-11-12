@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 
 function App(){
-    const version = "1.7.0";
+    const version = "2.0.0";
     return(
         <>
             <NavBar />
