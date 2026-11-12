@@ -3,13 +3,6 @@ Building a full-stack web application across three milestones this semester. The
 
 Run Procedure:
 1. Clone Repository or Download All files under Course-Scheduler in the Project-Milestone-2 branch
-
-If cloning repository after cloning run this command in terminal for correct branch: 
-
-git clone -b Project-Milestone-2 https://github.com/Domnc05/CSC3700-Project.git
-
-This will create a new folder with the correct version of the project
-
 2. Navigate to inside Course-Scheduler
 3. Grab schema.sql and seed.sql from sql folder in server folder
 4. In PhpMyAdmin SQL database run schema.sql in SQL query then run seed.sql in the query for the complete database
